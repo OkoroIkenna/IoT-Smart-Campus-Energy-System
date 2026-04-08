@@ -15,16 +15,16 @@ Components used for the project:
 
 # A. ESP32 Hardware Verification Test
 
-1. Objective
+# 1. Objective
 
 The ESP32 hardware verification test was conducted to confirm that the ESP32 development board is functioning properly and capable of communicating with the computer for program upload and execution. This test ensures that the main controller of the system is operational before integrating other components.
 
-2. Components Used
+# 2. Components Used
 	•	ESP32 Development Board
 	•	USB Cable
 	•	Computer (Arduino IDE Installed)
 
-3. Purpose
+# 3. Purpose
 	1.	Confirm ESP32 is functioning properly
 	2.	Confirm Arduino IDE communication with ESP32
 	3.	Confirm program upload functionality
