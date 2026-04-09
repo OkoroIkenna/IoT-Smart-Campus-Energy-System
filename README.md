@@ -168,13 +168,13 @@ HIGH = Relay OFF
 
 After correcting logic, relay switching worked properly.
 
-# 10. Result
+9. Result
 	•   Relay switching successful
 	•   ESP32 GPIO control confirmed
 	•   Relay power supply confirmed
 	•   Relay ready for appliance control integration
 
-# 11. Conclusion
+10. Conclusion
 
 The relay module was successfully tested and verified. The ESP32 can now control electrical loads such as:
 
@@ -208,7 +208,7 @@ The PIR sensor test was conducted to confirm that the system can detect human pr
 	4.	Confirm motion-based automation
 	5.	Simulate appliance control using LED
 
-4. Connection Setup
+# 4. Connection Setup
 
 ESP32 → PIR Sensor
 	•	PIR VCC → ESP32 VIN
@@ -250,37 +250,37 @@ delay(500);
 }
 ```
 
-7. Expected Result
+# 6. Expected Result
 	•	PIR detects motion
 	•	Serial monitor displays “Motion Detected”
 	•	LED turns ON when motion detected
 	•	LED turns OFF when no motion
 
-8. Problems Encountered
+# 7. Problems Encountered
 	1.	PIR sensor not detecting motion initially
 	2.	LED not turning ON
 	3.	Unstable readings from PIR sensor
 	4.	Delay in motion detection
 
-9. Cause of Problem
+# 8. Cause of Problem
 	•	PIR sensor requires warm-up time
 	•	Incorrect GPIO configuration
 	•	Loose wiring connections
 	•	PIR sensitivity delay
 
-10. Solution
+ # 9. Solution
 	1.	Allowed PIR sensor warm-up time (10–30 seconds)
 	2.	Verified GPIO connections
 	3.	Tightened wiring connections
 	4.	Adjusted delay timing in code
 
-11. Result
+# 10. Result
 	•	Motion detection successful
 	•	LED automation successful
 	•	Serial monitor working properly
 	•	PIR sensor ready for automation
 
-12. Conclusion
+# 11. Conclusion
 
 The PIR sensor was successfully tested and verified. The system can now detect occupancy and automatically control appliances to reduce unnecessary power consumption. This feature is essential for implementing smart energy management in university campuses.
 
@@ -289,25 +289,25 @@ The PIR sensor was successfully tested and verified. The system can now detect o
 
 # D. Manual Override Button Hardware Verification Test
 
-1. Objective
+# 1. Objective
 
 The manual override button test was conducted to allow users manually control appliances regardless of motion detection. This feature ensures flexibility in situations where automatic control is not desirable.
 
-2. Components Used
+# 2. Components Used
 	•	ESP32
 	•	Push Button
 	•	LED (Simulation Load)
 	•	Resistor (10KΩ Pull-up / Pull-down if required)
 	•	Jumper Wires
 
-3. Purpose
+# 3. Purpose
 	1.	Confirm manual control functionality
 	2.	Confirm override of PIR automation
 	3.	Confirm toggle switching behavior
 	4.	Confirm GPIO input reading
 	5.	Confirm user control capability
 
-4. Connection Setup
+# 4. Connection Setup
 
 ESP32 → Push Button
 	•	One Button Leg → GPIO 14
@@ -361,37 +361,37 @@ delay(300);
 lastButton = button;
 }
 ```
-6. Expected Result
+# 6. Expected Result
 	•	Button press toggles LED
 	•	Serial monitor displays Manual ON/OFF
 	•	LED turns ON when manual mode active
 	•	LED turns OFF when manual mode disabled
 
-7. Problems Encountered
+# 7. Problems Encountered
 	1.	Button not responding initially
 	2.	Multiple toggles on single press
 	3.	LED not switching correctly
 	4.	Unstable button readings
 
-8. Cause of Problem
+# 8. Cause of Problem
 	•	Button bouncing
 	•	No debounce delay
 	•	Incorrect wiring
 	•	Incorrect GPIO configuration
 
-9. Solution
+# 9. Solution
 	1.	Added debounce delay
 	2.	Verified wiring connections
 	3.	Used INPUT_PULLUP configuration
 	4.	Implemented toggle logic
 
-10. Result
+# 10. Result
 	•	Manual override working successfully
 	•	Button toggling confirmed
 	•	LED switching confirmed
 	•	User control implemented successfully
 
-11. Conclusion
+# 11. Conclusion
 
 The manual override button was successfully tested and verified. The system now supports manual appliance control, allowing users to override automatic motion detection when necessary. This improves system flexibility and usability.
 
@@ -399,11 +399,11 @@ The manual override button was successfully tested and verified. The system now 
 
 # E. PIR and Manual Override Integration Test
 
-1. Objective
+# 1. Objective
 
 The PIR and manual override integration test was conducted to confirm that both automatic motion detection and manual control can function together without interfering with each other. This ensures that the system can automatically control appliances while still allowing users to manually override the system when necessary.
 
-2. Components Used
+# 2. Components Used
 	•	ESP32
 	•	PIR Motion Sensor
 	•	Push Button (Manual Override)
@@ -412,14 +412,14 @@ The PIR and manual override integration test was conducted to confirm that both 
 	•	Jumper Wires
 
 
-3. Purpose
+# 3. Purpose
 	1.	Confirm PIR automatic control
 	2.	Confirm manual override functionality
 	3.	Confirm toggle switching behavior
 	4.	Confirm PIR pause during manual mode
 	5.	Confirm system integration logic
 
-4. Connection Setup
+# 4. Connection Setup
 
 PIR Sensor Connection
 	•	PIR VCC → ESP32 VIN
@@ -434,7 +434,7 @@ LED Connection
 	•	LED Positive → GPIO 25
 	•	LED Negative → GND (through resistor)
 
-5. Test Code Used
+# 5. Test Code Used
 
 ```cpp
 #define PIR 27
@@ -499,38 +499,38 @@ delay(200);
 }
 ```
 
-6. Expected Result
+# 6. Expected Result
 	•	PIR detects motion and turns LED ON
 	•	LED turns OFF when no motion detected
 	•	Button toggles manual mode
 	•	Manual mode pauses PIR sensor
 	•	Manual mode allows user control
 
-7. Problems Encountered
+# 7. Problems Encountered
 	1.	PIR interfering with manual override
 	2.	Button toggling multiple times
 	3.	LED switching incorrectly
 	4.	Manual mode not pausing PIR
 
-8. Cause of Problem
+# 8. Cause of Problem
 	•	Logic conflict between PIR and manual override
 	•	Button bounce issues
 	•	Incorrect toggle logic
 	•	Timing conflicts
 
-9. Solution
+# 9. Solution
 	1.	Implemented manual mode flag
 	2.	Added debounce delay
 	3.	Separated PIR logic and manual logic
 	4.	Corrected toggle logic
 
-10. Result
+# 10. Result
 	•	PIR automation working correctly
 	•	Manual override working correctly
 	•	System logic stable
 	•	Integration successful
 
-11. Conclusion
+# 11. Conclusion
 
 The PIR and manual override integration was successfully implemented. The system can now automatically detect occupancy and control appliances while still allowing manual user control. This improves system intelligence and flexibility for smart campus energy optimization.
 
@@ -538,11 +538,11 @@ The PIR and manual override integration was successfully implemented. The system
 
 # F. ACS712 Current Sensor Hardware Verification Test
 
-1. Objective
+# 1. Objective
 
 The ACS712 current sensor test was conducted to measure electrical current consumption of connected appliances. This enables the system to monitor power usage and detect abnormal or low current conditions for smart energy optimization.
 
-2. Components Used
+# 2. Components Used
 	•	ESP32
 	•	ACS712 Current Sensor
 	•	12V Fan (Test Load)
@@ -550,14 +550,14 @@ The ACS712 current sensor test was conducted to measure electrical current consu
 	•	Jumper Wires
 	•	Resistor (Optional for stabilization)
 
-3. Purpose
+# 3. Purpose
 	1.	Confirm current measurement capability
 	2.	Confirm ESP32 analog reading
 	3.	Confirm load current detection
 	4.	Confirm real-time monitoring
 	5.	Enable smart energy optimization feature
 
-4. Connection Setup
+# 4. Connection Setup
 
 ACS712 → ESP32
 	•	VCC → ESP32 3.3V (or VIN depending on module)
@@ -571,7 +571,7 @@ Load Connection (Fan Through ACS712)
 
 This allows ACS712 to measure current flowing to the fan.
 
-5. Test Code Used
+# 5. Test Code Used
 
 ```cpp
 #define ACS712 35
@@ -618,37 +618,37 @@ delay(500);
 }
 ```
 
-6. Expected Result
+# 6. Expected Result
 	•	Serial monitor displays current readings
 	•	Current changes when fan is ON
 	•	Current near zero when fan is OFF
 	•	Stable readings after calibration
 
-7. Problems Encountered
+# 7. Problems Encountered
 	1.	Constant maximum value (4095)
 	2.	No current change when load connected
 	3.	Noisy or unstable readings
 	4.	Incorrect calibration values
 
-8. Cause of Problem
+# 8. Cause of Problem
 	•	No load connected initially
 	•	Incorrect analog pin selection
 	•	Incorrect power connection
 	•	Sensor calibration not performed
 
-9. Solution
+# 9. Solution
 	1.	Connected fan as load
 	2.	Verified analog pin GPIO 35
 	3.	Performed sensor calibration
 	4.	Verified wiring connections
 
-10. Result
+# 10. Result
 	•	Current readings successfully detected
 	•	Fan load current measured correctly
 	•	Sensor calibration successful
 	•	Real-time monitoring confirmed
 
-11. Conclusion
+# 11. Conclusion
 
 The ACS712 current sensor was successfully tested and verified. The system can now monitor power consumption of connected appliances. This feature enables smart energy optimization, low current detection, and improved energy management within university campus environments.
 
@@ -656,11 +656,11 @@ The ACS712 current sensor was successfully tested and verified. The system can n
 
 # G. Relay and ACS712 Integration Test
 
-1. Objective
+# 1. Objective
 
 The relay and ACS712 integration test was conducted to confirm that the system can both control electrical appliances and monitor their power consumption simultaneously. This allows the system to intelligently manage energy usage and detect abnormal power conditions.
 
-2. Components Used
+# 2. Components Used
 	•	ESP32
 	•	4-Channel Relay Module
 	•	ACS712 Current Sensor
@@ -668,14 +668,14 @@ The relay and ACS712 integration test was conducted to confirm that the system c
 	•	12V Power Supply
 	•	Jumper Wires
 
-3. Purpose
+# 3. Purpose
 	1.	Confirm relay controlled load switching
 	2.	Confirm current monitoring during load operation
 	3.	Confirm power usage detection
 	4.	Confirm system integration
 	5.	Enable smart energy optimization
 
-4. Connection Setup
+# 4. Connection Setup
 
 Relay Connection
 	•	Relay VCC → ESP32 VIN
@@ -697,7 +697,7 @@ This configuration allows:
 	•	Relay controls fan ON/OFF
 	•	ACS712 measures fan current
 
-5. Test Code Used
+# 5. Test Code Used
 
 ```cpp
 #define RELAY 26
@@ -746,36 +746,36 @@ delay(3000);
 }
 ```
 
-6. Expected Result
+# 6. Expected Result
 	•	Relay switches fan ON and OFF
 	•	ACS712 detects current when fan ON
 	•	Current reduces when fan OFF
 	•	Serial monitor displays current values
 
-7. Problems Encountered
+# 7. Problems Encountered
 	1.	No current detected initially
 	2.	Relay switching but no fan operation
 	3.	Incorrect wiring between relay and sensor
 	4.	Unstable current readings
 
-8. Cause of Problem
+# 8. Cause of Problem
 	•	Incorrect wiring order
 	•	No load connected initially
 	•	Sensor calibration required
 	•	Loose wiring connections
 
-9. Solution
+# 9. Solution
 	1.	Corrected wiring order
 	2.	Connected fan properly
 	3.	Calibrated ACS712 sensor
 	4.	Verified connections
 
-10. Result
+# 10. Result
 	•	Relay switching successful
 	•	Current detection successful
 	•	Load control confirmed
 	•	Integration successful
 
-11. Conclusion
+# 11. Conclusion
 
 The relay and ACS712 integration test was successfully completed. The system can now control electrical appliances and monitor their energy consumption simultaneously. This forms the foundation for smart energy optimization and intelligent appliance control in university campuses.
