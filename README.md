@@ -31,7 +31,7 @@ The ESP32 hardware verification test was conducted to confirm that the ESP32 dev
 	4.	Confirm serial monitor output working
 	5.	Confirm GPIO pins operational
 
-4. Connection Setup
+# 4. Connection Setup
 
 ESP32 connected to computer using USB cable.
 
@@ -51,38 +51,38 @@ delay(1000);
 }
 ```
 
-6. Expected Result
+# 6. Expected Result
 	•	Code uploads successfully
 	•	Serial monitor displays output
 	•	ESP32 resets properly
 	•	Communication between ESP32 and computer established
 
-7. Problems Encountered
+# 7. Problems Encountered
 	1.	ESP32 not detected
 	2.	Wrong COM port selected
 	3.	Driver issues
 	4.	Upload failure
 
-8. Cause of Problem
+# 8. Cause of Problem
 	•	ESP32 board not installed in Arduino IDE
 	•	Incorrect board selection
 	•	Incorrect port selection
 	•	Missing USB driver
 
-9. Solution
+# 9. Solution
 	1.	Installed ESP32 board in Arduino IDE
 	2.	Selected correct board (ESP32 Dev Module)
 	3.	Selected correct COM port
 	4.	Restarted Arduino IDE
 
 
-10. Result
+# 10. Result
 	•	ESP32 detected successfully
 	•	Code uploaded successfully
 	•	Serial monitor output confirmed
 	•   ESP32 ready for system integration
 
-# Conclusion
+# 11. Conclusion
 
 The ESP32 development board was successfully tested and verified. The controller is now ready to interface with sensors, relay modules, and other system components for the IoT Smart Campus Energy System.
 
@@ -90,25 +90,25 @@ The ESP32 development board was successfully tested and verified. The controller
 
 # B. Relay Module Hardware Verification Test
 
-1. Objective
+# 1. Objective
 
 The relay module test was conducted to confirm that the ESP32 can successfully control external electrical appliances using GPIO pins. This test ensures that switching mechanisms required for appliance automation are functioning correctly.
 
-2. Components Used
+# 2. Components Used
 	•   ESP32
 	•   4-Channel Relay Module
 	•   Jumper Wires
 	•   LED (for simulation)
 	•   Power Supply (5V from ESP32)
 
-3. Purpose
+# 3. Purpose
 	•   Confirm relay switching functionality
 	•   Confirm GPIO control from ESP32
 	•   Confirm relay power supply
 	•   Confirm active LOW logic behavior
 	•   Confirm relay LED indicators working properly
 
-4. Connection Setup
+# 4. Connection Setup
 
 	•   ESP32 → Relay Module
 	•   ESP32 VIN → Relay VCC
@@ -138,19 +138,19 @@ digitalWrite(RELAY1, HIGH);
 delay(3000);
 }
 ```
-6. Expected Result
+# 6. Expected Result
 	•   Relay should click ON and OFF
 	•   Relay indicator LED should blink
 	•   Serial monitor should display switching messages
 	•   GPIO should control relay successfully
 
-7. Problems Encountered
+# 7. Problems Encountered
 	1.  Relay clicking opposite logic
 	2.  Relay not turning ON initially
 	3.  Confusion with relay active state
 	4.  No switching observed at first
 
-8. Cause of Problem
+# 8. Cause of Problem
 
 The relay module used is Active LOW, meaning:
 
@@ -159,7 +159,7 @@ HIGH signal deactivates relay
 
 This behavior is different from normal logic expectations.
 
-9. Solution
+# 9. Solution
 
 Relay logic was reversed in code:
 
@@ -168,13 +168,13 @@ HIGH = Relay OFF
 
 After correcting logic, relay switching worked properly.
 
-9. Result
+# 10. Result
 	•   Relay switching successful
 	•   ESP32 GPIO control confirmed
 	•   Relay power supply confirmed
 	•   Relay ready for appliance control integration
 
-10. Conclusion
+# 11. Conclusion
 
 The relay module was successfully tested and verified. The ESP32 can now control electrical loads such as:
 
@@ -190,18 +190,18 @@ This confirms that the system can perform automated appliance control required f
 
 # C. PIR Sensor Hardware Verification Test
 
-1. Objective
+# 1. Objective
 
 The PIR sensor test was conducted to confirm that the system can detect human presence or motion. This is important for implementing automatic appliance control to reduce energy wastage in university environments.
 
-2. Components Used
+# 2. Components Used
 	•	ESP32
 	•	PIR Motion Sensor
 	•	LED (Simulation Load)
 	•	Resistor (220Ω / 1KΩ)
 	•	Jumper Wires
 
-3. Purpose
+# 3. Purpose
 	1.	Confirm PIR motion detection
 	2.	Confirm ESP32 receiving PIR signal
 	3.	Confirm automatic control logic
