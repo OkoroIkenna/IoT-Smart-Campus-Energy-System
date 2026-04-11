@@ -779,3 +779,150 @@ delay(3000);
 # 11. Conclusion
 
 The relay and ACS712 integration test was successfully completed. The system can now control electrical appliances and monitor their energy consumption simultaneously. This forms the foundation for smart energy optimization and intelligent appliance control in university campuses.
+
+
+
+H. Multi-Load Control System Test
+
+# 1. Objective
+
+The multi-load control test was conducted to verify that the system can independently control multiple electrical appliances using different relay channels. This ensures that the system can manage multiple devices within a smart environment.
+
+⸻
+
+# 2. Components Used
+	•	ESP32
+	•	4-Channel Relay Module
+	•	2 × 12V Fans
+	•	12V Power Supply
+	•	Jumper Wires
+
+⸻
+
+# 3. Purpose
+	1.	Confirm control of multiple loads
+	2.	Confirm independent relay switching
+	3.	Confirm GPIO multi-channel control
+	4.	Simulate real-world appliance system
+	5.	Prepare system for full automation
+
+⸻
+
+# 4. Connection Setup
+
+Relay Control (ESP32 → Relay)
+	•	GPIO 26 → IN1 (Fan 1)
+	•	GPIO 27 → IN2 (Fan 2)
+	•	VCC → ESP32 VIN
+	•	GND → ESP32 GND
+
+Load Connection
+
+Fan 1:
+	•	12V + → COM (Relay 1)
+	•	NO → Fan 1 +
+	•	Fan 1 − → 12V −
+
+Fan 2:
+	•	12V + → COM (Relay 2)
+	•	NO → Fan 2 +
+	•	Fan 2 − → 12V −
+
+⸻
+
+# 5.  Test Code Used
+
+#define FAN1 26
+#define FAN2 27
+
+void setup()
+{
+Serial.begin(115200);
+
+pinMode(FAN1, OUTPUT);
+pinMode(FAN2, OUTPUT);
+
+digitalWrite(FAN1, HIGH);
+digitalWrite(FAN2, HIGH);
+}
+
+void loop()
+{
+Serial.println("Fan 1 ON");
+digitalWrite(FAN1, LOW);
+delay(4000);
+
+Serial.println("Fan 1 OFF");
+digitalWrite(FAN1, HIGH);
+delay(2000);
+
+Serial.println("Fan 2 ON");
+digitalWrite(FAN2, LOW);
+delay(4000);
+
+Serial.println("Fan 2 OFF");
+digitalWrite(FAN2, HIGH);
+delay(2000);
+
+Serial.println("Both Fans ON");
+digitalWrite(FAN1, LOW);
+digitalWrite(FAN2, LOW);
+delay(5000);
+
+Serial.println("Both Fans OFF");
+digitalWrite(FAN1, HIGH);
+digitalWrite(FAN2, HIGH);
+delay(4000);
+}
+
+
+⸻
+
+# 6. Expected Result
+	•	Fan 1 operates independently
+	•	Fan 2 operates independently
+	•	Both fans operate together
+	•	Relay switching functions correctly
+	•	Serial monitor displays system activity
+
+⸻
+
+# 6. Problems Encountered
+	1.	Incorrect relay wiring
+	2.	Both fans turning ON together unintentionally
+	3.	GPIO pin confusion
+	4.	Power distribution issues
+
+⸻
+
+# 7. Cause of Problem
+	•	Misconnection of relay channels
+	•	Shared control signals
+	•	Incorrect pin assignment
+	•	Improper wiring
+
+⸻
+
+# 8. Solution
+	1.	Verified relay channel connections
+	2.	Assigned correct GPIO pins
+	3.	Separated control signals
+	4.	Ensured proper wiring
+
+⸻
+
+# 9. Result
+	•	Independent fan control successful
+	•	Multiple load switching confirmed
+	•	System stability achieved
+	•	Multi-load system ready
+
+⸻
+
+ # 10. Conclusion
+
+The multi-load control system was successfully implemented. The ESP32 can now independently control multiple appliances, which is essential for real-world smart energy management systems in campus environments.
+
+
+
+~~
